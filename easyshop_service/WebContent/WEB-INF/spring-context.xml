@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+				http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	
+	<!--会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 两个bean,是spring MVC为@Controllers分发请求所必须的。
+	并提供了：数据绑定支持，@NumberFormatannotation支持，@DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB），读写JSON的支持（Jackson）。
+	-->
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/> 
+	
+    <!-- 启用spring 注解 -->
+    <context:annotation-config />
+	
+    <!-- 设置使用注解的类所在的jar包 -->
+    <context:component-scan base-package="cn.finedo"></context:component-scan>
+    
+    <!-- 定时器 -->
+<!--     <bean id="timerTaskScheduler" class="cn.finedo.fsdp.service.timer.TimerTaskScheduler" scope="singleton" init-method="start"></bean>
+ -->    
+    
+    <!-- 数据库配置解密 -->
+	<bean id="propertyConfigurer" class="cn.finedo.fsdp.service.common.configure.FsdpPropertyPlaceholderConfigurer">
+	</bean>
+	
+	<bean id="fsdpDataSource" destroy-method="close" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="${fsdp.jdbc.driverClassName}"/>
+        <property name="url" value="${fsdp.jdbc.url}"/>
+        <property name="username" value="${fsdp.jdbc.username}"/>
+        <property name="password" value="${fsdp.jdbc.password}"/>
+        <property name="maxTotal" value="200"/>
+        <property name="maxIdle" value="5"/>
+        <property name="defaultAutoCommit" value="true"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testWhileIdle" value="true"/>
+        <!-- mysql、oracle为select 1 from dual, db2为select 1 from sysibm.dual -->
+        <property name="validationQuery" value="select 1 from dual"/>
+    </bean>
+    
+    <bean id="easyshop_serviceDataSource" destroy-method="close" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="${easyshop_service.jdbc.driverClassName}"/>
+        <property name="url" value="${easyshop_service.jdbc.url}"/>
+        <property name="username" value="${easyshop_service.jdbc.username}"/>
+        <property name="password" value="${easyshop_service.jdbc.password}"/>
+        <property name="maxTotal" value="200"/>
+        <property name="maxIdle" value="5"/>
+        <property name="defaultAutoCommit" value="true"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testWhileIdle" value="true"/>
+        <!-- mysql、oracle为select 1 from dual, db2为select 1 from sysibm.dual -->
+        <property name="validationQuery" value="select 1 from dual"/>
+    </bean>
+    
+    <!-- 多数据库事务管理需要使用JTA，如：TOMCAT + JOTM -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="easyshop_serviceDataSource"/>
+	</bean>
+	
+	<!-- FSDP框架使用数据源 -->
+	<bean id="fsdpJdbcTemplate" class="cn.finedo.fsdp.service.common.jdbc.JdbcTemplate">
+		<constructor-arg ref="fsdpDataSource" />
+	</bean>
+	
+	<!-- 项目使用数据源 -->
+	<bean id="jdbcTemplate" class="cn.finedo.fsdp.service.common.jdbc.JdbcTemplate">
+		<constructor-arg ref="easyshop_serviceDataSource" />
+	</bean>
+	
+	<!--  redis 配置 -->
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxTotal" value="100"/>
+		<property name="maxIdle" value="10" />
+	</bean>
+		
+	<bean id="jedisConnFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+        p:host-name="118.190.99.216"
+        p:port="6379"
+        p:usePool="true"
+        p:password="">
+        <constructor-arg index="0" ref="jedisPoolConfig"/>
+	</bean>
+
+	<!-- key序列化 -->  
+	<bean id="stringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+	
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
+        p:connection-factory-ref="jedisConnFactory"
+        p:keySerializer-ref="stringRedisSerializer"
+        p:defaultSerializer-ref="stringRedisSerializer"/>
+        
+    <!-- quartz配置 -->
+    <!-- 配置线程池-->
+    <bean name="executor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="15"/>
+        <property name="maxPoolSize" value="25"/>
+        <property name="queueCapacity" value="100"/>
+    </bean>
+    <bean name="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="configLocation" value="classpath:quartz.properties"/>
+        <property name="dataSource" ref="fsdpDataSource"/>
+        <property name="transactionManager" ref="transactionManager"/>
+        <!-- 任务唯一的名称，将会持久化到数据库-->
+        <property name="schedulerName" value="fsdpBaseScheduler"/>
+        <!-- 每台集群机器部署应用的时候会更新触发器-->
+        <property name="overwriteExistingJobs" value="true"/>
+        <property name="applicationContextSchedulerContextKey" value="appli"/>
+        <property name="startupDelay" value="10"/>
+        <property name="jobFactory">
+            <bean class="cn.finedo.fsdp.service.timer.TimerTaskJobFactory"/>
+        </property>
+        <property name="taskExecutor" ref="executor"/>
+    </bean>
+    <bean id="timerTaskScheduler" class="cn.finedo.fsdp.service.timer.TimerTaskScheduler" scope="singleton" init-method="start">
+    </bean>
+</beans>

@@ -1,0 +1,177 @@
+*{ margin: 0; padding: 0; }
+body{ background: #fff; font-size: 14px; color: #333; font-family: Microsoft YaHei; }
+li{ list-style-type: none; }
+a{ text-decoration: none; }
+
+/* 登录 */
+.yllogin{ background: #373d41; font-size: 16px; }
+.yllogin-head{ width: 100%; background: #1b1f22; padding: 0 20px; height: 70px; line-height: 67px; color: #fff; font-size: 20px; box-sizing: border-box; border-bottom: 1px solid #636568; }
+.yllogin-box{ width: 100%; height: 620px; background: url(../images/banner.png) #252a2f no-repeat center ;background-size:100% 100%; }
+.yllogin-main{ width: 1100px; margin: 0 auto; }
+.yllogin-font{ width: 500px; float: left; color: #fff; margin-top: 200px; }
+.yllogin-font h1{ margin-bottom: 30px; }
+.yllogin-font p{ font-size: 16px; line-height: 32px; }
+.yllogin-con{ width: 430px; height: 400px; background: #fff; float: right; margin-top: 110px; padding: 0 25px; box-sizing: border-box; }
+.yllogin-con h3{ font-size: 18px; font-style: normal; font-weight: 400; padding: 30px 0; }
+.yllogin-con li{ margin-bottom: 25px; float: left; width: 100%; }
+.yllogin-con .yltext{ width: 100%; height: 45px; padding: 0 5px; border: 1px solid #ccc; box-sizing: border-box;border-radius: 3px; }
+.yllogin-con .yltext:focus{ border: 1px solid #00c1de; }
+.yllogin-con .ylbtn{ width: 100%; height: 45px; border: none; cursor: pointer; font-size: 16px; color: #fff; background: #00c1de; margin-bottom: 25px; transition: background .3s; }
+.yllogin-con .ylbtn:hover{ background: #03b3cd; }
+.yllogin-con img{ float: right; }
+.ylcopy{ width: 100%; text-align: center; margin-top: 20px; color: #eee;}
+.ylcopy p{ margin-top: 15px; }
+.ylcopy a{ color: #eee; margin: 0 25px; font-size: 18px; }
+
+/* 共同的 */
+.ylcomhead{ position: fixed; width: 100%; background: #1b1f22; padding: 0 20px; height: 70px; line-height: 67px; color: #fff; font-size: 20px; box-sizing: border-box; border-bottom: 1px solid #636568; }
+.ylcomhead span{ float: right; font-size: 14px; color: #fff; }
+.ylcomhead img{ vertical-align: middle; margin-right: 10px; }
+.ylcomhead a{ margin-left: 10px; }
+.ylcommenu{ width: 280px; background: #20252b; position: fixed; left: 0; top: 70px; bottom: 0; overflow-y: auto; color: #fff; }
+.ylcommenu li{ padding: 15px 0 15px 20px; box-sizing: border-box; cursor: pointer; }
+.ylcommenu li.yesli{ background: #00c1de; }
+.ylcommenu li:hover{ color: #00c1de; }
+.ylcommenu img{ vertical-align: middle; margin-right: 20px; }
+.ylmain{ float:right; position:fixed; right:0; left: 280px; top:80px; bottom:0; z-index:-100; +height:650px; +overflow-y:auto; }
+.ylnav{ width: 100%; font-size: 16px; padding: 18px; box-sizing: border-box; border-bottom: 1px solid #ddd; margin-bottom: 20px; }
+.ylnav span{ border-left: 3px solid #c06103; padding-left: 10px; }
+.ylnav a{ width: 60px; height: 34px; display: inline-block; position: absolute; right: 20px; top: 18px; }
+
+/* 列表 */
+.yllist{ width: 100%; padding: 0 20px; box-sizing: border-box; }
+.yllist-infor{ width: 100%; }
+.yllist-infor-left{ float: left; }
+.yllist-infor-left a{ display: inline-block; width: 48px; height: 40px; background: url(../images/list_icon.jpg) no-repeat; margin-right: 10px; }
+.yllist-infor-left a.add{ background-position: 0 0; }
+.yllist-infor-left a.add:hover{ background-position: -48px 0; }
+.yllist-infor-left a.import{ background-position: -96px 0; }
+.yllist-infor-left a.import:hover{ background-position: -144px 0; }
+.yllist-infor-left a.export{ background-position: -192px 0; }
+.yllist-infor-left a.export:hover{ background-position: -240px 0; }
+.yllist-infor-rig{ display: inline-block; float: right; }
+.yllist-infor-rig select{ width: 140px; height: 40px; border: 1px solid #ddd; padding: 0 0 0 5px; float: right; margin-left: 13px; box-sizing: border-box; }
+.yllist-infor-rig .yltext{ width: 200px; height: 40px; border: 1px solid #ddd; padding: 0 0 0 5px; float: right; box-sizing: border-box;border-radius: 3px; }
+.yllist-infor-rig .ylquery{ background: url(../images/list_query.jpg) no-repeat; width: 40px; height: 40px; float: right; border: 1px solid #ddd; box-sizing: border-box; cursor: pointer;}
+.yllist-infor-rig .ylquery:hover{ background-position: -40px 0; }
+.yllist table{ width: 100%; background: #fff; border-collapse: collapse; margin-top: 20px; float: left; border: 1px solid #ddd; box-sizing: border-box; }
+.yllist table th{ padding: 13px 0 13px 20px; background: #f3f3f3; font-weight: 400; text-align: left; }
+.yllist table td{ padding: 0; }
+.yllist table a{ color: #00c1de; }
+.yllist table a:hover{ color: #ffa200; }
+.yllist .ywcl{ background:#C0C0C0;}
+.yllist .ywcl:hover{ background: #00c1de; }
+
+/* 修改 */
+.yledit{ width: 80%; padding: 0 20px; box-sizing: border-box;margin-left:10%; }
+.yledit table{ width: 100% }
+.yledit table td{ padding-bottom: 15px; /* line-height: 40px; vertical-align: text-top; */ }
+.yledit table .ylname{ text-align: right; width: 150px; }
+.yledit table .ylname1{ text-align: right; width: 12%; }
+.yledit table .ylname2{  width: 38%; }
+.yledit table .ylvalue{  width: 40%; }
+.yledit table .yltext{ width: 70%; height: 40px; border: 1px solid #ddd; padding: 0 0 0 5px; transition: border .3s;border-radius: 3px; }
+.yledit table .yltext:focus{ border: 1px solid #00c1de; }
+.yledit table textarea{ width: 202%; height: 100px; border: 1px solid #ddd; padding: 0 0 0 5px; transition: border .3s; font-family: Microsoft YaHei; line-height: 24px; vertical-align: text-top;}
+.yledit table textarea:focus{ border: 1px solid #00c1de; }
+.yledit table img{ margin-right: 10px; cursor: pointer; }
+.yledit table img:hover{ box-shadow: 0 0 5px rgba(0,0,0,.5); }
+
+.ylbox{ width: 100%; position: fixed; top: 0; bottom: 0; z-index: 9999; background: rgba(0,0,0,.4); width: 100%; }
+.ylbox-main{ width: 700px; height: 400px; padding: 20px; box-sizing: border-box; background: #fff; border: 4px solid rgba(0,0,,0,6); position: absolute; top: 50%; left: 50%; margin: -200px 0 0 -350px; }
+.ylbox-main .ylname{ font-size: 18px; position: relative; margin-bottom:30px; }
+.ylbox-main .ylname span{ font-size: 30px; position: absolute; right: 0; top: -10px; color: #999; cursor: pointer; }
+.ylbox-main .ylname span:hover{ color: #f00; }
+.ylbox-main .ylcon{ width: 100%; }
+.ylbox-main .ylcon li{ margin-top: 15px; }
+.ylbox-main .ylcon span{ width: 100px; text-align: right; display: inline-block;  vertical-align: top; line-height: 40px; }
+.ylbox-main .ylcon .yltext{ width: 500px; height: 40px; border: 1px solid #ddd; padding: 0 0 0 5px; transition: border .3s;border-radius: 3px; }
+.ylbox-main .ylcon .yltext:focus{ border: 1px solid #00c1de; }
+.ylbox-main .ylcon textarea{ width: 500px; height: 100px; border: 1px solid #ddd; padding: 0 0 0 5px; transition: border .3s; font-family: Microsoft YaHei; line-height: 24px; }
+.ylbox-main .ylcon textarea:focus{ border: 1px solid #00c1de; }
+.ylbox-main .ylcon .ylbtn{ width: 80px; height: 40px; background: #00c1de; transition: background .3s; color: #fff; border: none; cursor: pointer; }
+.ylbox-main .ylcon .ylbtn:hover{ background: #06acc5; }
+.ylbox-main .ylcon .ylcenter{ text-align: center; margin-top: 30px; }
+.ylsubmit{ text-align: center; margin-top: 30px;padding-bottom: 10px; }
+.ylsubmit .ylbtn{ padding: 0 30px; height: 40px; background: #00c1de; transition: background .3s; color: #fff; border: none; cursor: pointer;border-radius: 5px; }
+.ylsubmit .ylbtn:hover{ background: #06acc5; }
+/* 返回 */
+.back{ width: 60px; float:right;height: 34px; background: url(../images/back.jpg) no-repeat;transition: background .3s; color: #fff; border: none; cursor: pointer;border-radius: 5px; }
+/*架构样式*/
+.list_dt{ color: #fff;padding: 0 40px 0 20px; height: 50px; line-height: 50px; cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;position: relative;font-size: 14px;}
+.lias {text-decoration:none;out-line: none;color: #f9c851;width:100%;height:100%;display:block;}
+.lia {text-decoration:none;out-line: none;color: #fff;width:100%;display:block;}
+#open{background: #40b2c4; color: #fff;}
+._after img{ vertical-align: middle; margin: -4px 4px 0 0;}
+.list_dt_icon{position: absolute;right: 10px;top: 18px;display: block;width: 16px;height: 16px;background: url("../images/off.png") no-repeat;}
+#open .list_dt_icon{background: url("../images/open.png") no-repeat;}
+.list_dd{display: none;}
+.list_li{box-sizing: border-box;list-style-type: none;color: #fff;height: 50px;line-height: 50px;cursor: pointer;padding-left: 65px;padding-right:10px;font-size: 14px; }
+.ylcommenu1{ width: 16.5%; background: #20252b; position: fixed; left: 0; top: 70px; bottom: 0; overflow-y: auto; color: #fff; }
+.ylcommenu1 li{ box-sizing: border-box; cursor: pointer; }
+.ylcommenu1 img{ vertical-align: middle; margin-right: 20px; }
+.ylcommenu1 li:hover{ color: #00c1de; }
+
+/* 下拉选 */
+.selectdata{width: 71%; height: 40px; border:1px solid #ddd;border-radius: 3px;}
+ /* 上传视频按钮 */
+ .yledit table td .uploadbutton{valign:middle}
+ .finedo-upload-nav{background: #fff;border-bottom: none;}
+
+.uploaddata{ border-radius: 5px;background: #00c1de;border: 1px solid #fff;width: 100px;height: 40px;color: #fff; }
+.uploaddata:hover{ background: #66CDAA;color: #fff;cursor: pointer; }
+/* 上传图片样式 */
+.img-square{width:100%;height:100%;position:relative;cursor: pointer;}
+.closeLayer{z-index: 99;position:absolute;left: 43%;margin-top: 0.5%; cursor: pointer;}
+.closeLayer1{z-index: 99;position:absolute;left: 37%;margin-top: 0.5%; cursor: pointer;}
+
+/* 查询下拉选*/
+.queryselect{
+	width:258px;height:35px;margin-left: 5px;margin-top: 3px;border-color:#e9e9e2
+}
+/*  高级查询按钮*/
+.finedo-button-blue{
+	width:100px;height:40px;
+}
+.finedo-button-blue:hover{
+	background: #00c0aa;
+}
+/*  上传图片样式*/
+.uploadimg{
+	margin-left:21%;margin-top: 2%;
+}
+.uploaddoc{
+	margin-left:21%;margin-top: 2%;
+}
+.divclass{
+	width:30%;display:none;
+}
+.imageclass{
+	width:30%;display:block;
+}
+.docclass{
+	width:30%;display:none;
+}
+.closeLayer img{
+	width:20px;
+}
+/* 富文本样式 */
+.editorstyle{
+	width:78%;margin-left:12%
+}
+.importdata{
+	width:100px;
+	height:40px;
+	padding: 3px 12px;
+    background: #30b5ff;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    font-family: Microsoft Yahei,SimSun;
+    font-size: 12px;
+    margin-right: 20px;
+}
+.importdata:hover{
+	background: #00c0aa;
+}
+.importclass{color:#FFF;padding: 8px 15px;height: 29px;margin-top: 3px;background: #30b5ff;}

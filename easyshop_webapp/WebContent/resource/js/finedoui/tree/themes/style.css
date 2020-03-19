@@ -1,0 +1,38 @@
+* { margin:0; padding:0; }
+/*---------树控件--------*/
+.fdtree{padding:0; margin:0; padding:5px; color:#333; position:absolute;}
+.fdtree li{padding:0; margin:0; list-style:none; line-height:14px; text-align:left; white-space:nowrap; outline:0}
+.fdtree li ul{ margin:0; padding:0 0 0 18px}
+.fdtree li ul.line{ background:url(images/line_conn.gif) 0 0 repeat-y;}
+
+.fdtree li a {padding:1px 3px 0 0; margin:0; cursor:pointer; height:17px; color:#333; background-color: transparent; text-decoration:none; vertical-align:top; display: inline-block}
+.fdtree li a:hover {text-decoration:underline}
+.fdtree li a.curSelectedNode {padding-top:0px; background-color:#FFE6B0; color:black; height:16px; border:1px #FFB951 solid; opacity:0.8;}
+.fdtree li a.curSelectedNode_Edit {padding-top:0px; background-color:#FFE6B0; color:black; height:16px; border:1px #FFB951 solid; opacity:0.8;}
+.fdtree li a.tmpTargetNode_inner {padding-top:0px; background-color:#316AC5; color:white; height:16px; border:1px #316AC5 solid; opacity:0.8; filter:alpha(opacity=80)}
+.fdtree li a.tmpTargetNode_prev {}
+.fdtree li a.tmpTargetNode_next {}
+.fdtree li a input.rename {height:14px; width:80px; padding:0; margin:0; font-size:12px; border:1px #7EC4CC solid; *border:0px}
+.fdtree li span {line-height:16px; margin-right:2px}
+.fdtree li span.node {line-height:0; margin:0; width:16px; height:16px; display: inline-block; vertical-align:middle;
+	border:0 none; cursor: pointer;outline:none;}
+
+.fdtree li span.node.edit {margin-right:2px; background-position:-110px -48px; vertical-align:top; *vertical-align:middle}
+.fdtree li span.node.remove {margin-right:2px; background-position:-110px -64px; vertical-align:top; *vertical-align:middle}
+
+.fdtree li span.node.icon_open{ display:inline-block; width:14px; height:15px; background:url(images/tree.png) no-repeat; background-position:-14px 0;margin-right:5px; }
+.fdtree li span.node.icon_close{ display:inline-block; width:14px; height:15px; background:url(images/tree.png) no-repeat; background-position:0;margin-right:5px; }
+.fdtree li span.node.icon_docu{ display:inline-block; width:14px; height:15px; background:url(images/tree.png) no-repeat; background-position:-28px 0;margin-right:5px; }
+.fdtree li span.node.icon_arrow_open{ display:inline-block; width:10px; height:15px; background:url(images/tree.png) no-repeat; background-position:-41px 0;margin-right:5px; }
+.fdtree li span.node.icon_arrow_close{ display:inline-block; width:10px; height:15px; background:url(images/tree.png) no-repeat; background-position:-51px 0;margin-right:5px; }
+.fdtree li span.node.icon_triangle_open{ display:inline-block; width:10px; height:15px; background:url(images/tree.png) no-repeat; background-position:-61px 0;margin-right:5px; }
+.fdtree li span.node.icon_triangle_close{ display:inline-block; width:10px; height:15px; background:url(images/tree.png) no-repeat; background-position:-71px 0;margin-right:5px; }
+.fdtree li span.node.icon_empty{ display:inline-block; width:14px; height:15px; margin-right:5px; }
+
+.fdtree li span.node.chk {width:13px; height:13px; margin:0 3px 0 0; cursor: auto}
+.fdtree li span.node.chk.icon_radio_no{ display:inline-block; width:14px; height:15px; background:url(images/tree.png) no-repeat; background-position:-81px 0;margin-right:5px; }
+.fdtree li span.node.chk.icon_radio_yes{ display:inline-block; width:14px; height:15px; background:url(images/tree.png) no-repeat; background-position:-95px 0;margin-right:5px; }
+.fdtree li span.node.chk.icon_checkbox_no{ display:inline-block; width:14px; height:15px; background:url(images/tree.png) no-repeat; background-position:-109px 0;margin-right:5px; }
+.fdtree li span.node.chk.icon_checkbox_yes{ display:inline-block; width:14px; height:15px; background:url(images/tree.png) no-repeat; background-position:-123px 0;margin-right:5px; }
+
+.fdtree li span.node.icon_loading{ display:inline-block; width:15px; height:15px; background:url(images/treeloading.gif) no-repeat;margin-right:5px; }

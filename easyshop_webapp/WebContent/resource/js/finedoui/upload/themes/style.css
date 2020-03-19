@@ -1,0 +1,73 @@
+* { margin:0; padding:0; }
+/*--------上传控件--------*/
+.finedo-upload-filelist-content{ width:100%; font-family:SimSun; font-size:13px; }
+.finedo-upload-nav{ width:100%; height:45px; border-bottom:1px solid #e0e0e0; background:#f7f7ff; }
+.finedo-upload-nav-left{ float:left; padding:8px 0 0 10px; }
+.finedo-upload-nav-rig{ float:right; padding:8px 10px 0 0; }
+.finedo-upload-btn{ position:relative; background:url(images/upload_upload.png) no-repeat; display:inline-block; border-radius:4px; padding:4px 12px; overflow:hidden; text-decoration:none; text-indent:0; line-height:20px; text-indent:20px; color:#fff; vertical-align:top; cursor:pointer; }
+.finedo-upload-btn input{ position:absolute; font-size:100px; right:0; top:0; opacity:0; filter:alpha(opacity=0); -moz-opacity:0; cursor:pointer; }
+.finedo-upload-btn:hover{ background-position:0 -28px; }
+.finedo-upload-downbtn-all{ width:93px; height:28px; background:url(images/download_all.png) no-repeat; border:0; color:#fff; text-indent:20px; margin-right:10px; cursor:pointer;}
+.finedo-upload-downbtn-all:hover{ background-position:0 -28px; }
+.finedo-upload-nav-switch{ width:31px; height:29px; background:url(images/upload_viewmodel.png) top left no-repeat; cursor:pointer; display:inline-block; }
+.finedo-upload-nav-view{ background-position:0 -29px; }
+.finedo-upload-fileitem{ min-height:20px; padding:10px; border-bottom:1px solid #e0e0e0; }
+.finedo-upload-fileitem-name{ float:left; width:60%; }
+.finedo-upload-fileitem-op{ float:left; width:40%; }
+.finedo-upload-op-icon{ float:left; width:42px; height:13px; margin:4px 10px 0 0; background:url(images/upload_operate.jpg) top left no-repeat; cursor:pointer; text-align:right; }
+.finedo-upload-op-download{ background-position:0 -13px; }
+.finedo-upload-op-del{ background-position:0 -26px; }
+.finedo-upload-disabled{ color:#bcbcbc; }
+.finedo-upload-progress-display{ display:inline-block; }
+.finedo-upload-progress-load{ width:135px; height:8px; background:#f3f3f3; border:1px solid #c3c3c3; border-radius:5px; margin:5px 5px 0 0; }
+.finedo-upload-progress-color{ background:#ffb320; border:1px solid #f4a100; width:0%; height:8px; border-radius:5px; margin:-1px 0 0 -1px; }
+.finedo-upload-control{ margin:5px 2px 5px 2px; padding:5px 0px 5px 0px; font-size:12px; font-family:SimSun,Microsoft Yahei; color:#353535; border:1px solid #c3c3c3;}
+.finedo-upload-noicon{ height:25px; line-height:25px; float:left; cursor:pointer; }
+.finedo-upload-icon{ height:25px; background:url(images/filetypeicon.png) top left no-repeat; text-indent:30px; line-height:25px; float:left; cursor:pointer; }
+.finedo-accdb{ background-position:0 0; }
+.finedo-avi{ background-position:0 -25px; }
+.finedo-bmp{ background-position:0 -50px; }
+.finedo-css{ background-position:0 -75px; }
+.finedo-docx{ background-position:0 -125px; }
+.finedo-eml{ background-position:0 -150px; }
+.finedo-eps{ background-position:0 -175px; }
+.finedo-fla{ background-position:0 -200px; }
+.finedo-gif{ background-position:0 -225px; }
+.finedo-html{ background-position:0 -250px; }
+.finedo-ind{ background-position:0 -275px; }
+.finedo-ini{ background-position:0 -300px; }
+.finedo-jpeg{ background-position:0 -325px; }
+.finedo-jsf{ background-position:0 -350px; }
+.finedo-midi{ background-position:0 -375px; }
+.finedo-mov{ background-position:0 -400px; }
+.finedo-mp3{ background-position:0 -425px; }
+.finedo-mpeg{ background-position:0 -450px; }
+.finedo-pdf{ background-position:0 -475px; }
+.finedo-png{ background-position:0 -500px; }
+.finedo-pptx{ background-position:0 -550px; }
+.finedo-proj{ background-position:0 -575px; }
+.finedo-psd{ background-position:0 -600px; }
+.finedo-pst{ background-position:0 -625px; }
+.finedo-pub{ background-position:0 -650px; }
+.finedo-rar{ background-position:0 -675px; }
+.finedo-readme{ background-position:0 -700px; }
+.finedo-settings{ background-position:0 -725px; }
+.finedo-text{ background-position:0 -750px; }
+.finedo-tiff{ background-position:0 -775px; }
+.finedo-url{ background-position:0 -800px; }
+.finedo-vsd{ background-position:0 -825px; }
+.finedo-wav{ background-position:0 -850px; }
+.finedo-wma{ background-position:0 -875px; }
+.finedo-wmv{ background-position:0 -900px; }
+.finedo-xlsx{ background-position:0 -950px; }
+.finedo-zip{ background-position:0 -975px; }
+
+@media screen and (max-width: 768px) {
+	.finedo-upload-op-icon{ float:right; width:13px;}
+    .finedo-upload-op-icon span{display:none;}
+    .finedo-upload-op-download span{display:none;}
+    .finedo-upload-op-del span{display:none;}
+    .finedo-upload-fileitem-name{ float:left; width:120px; overflow-y:hidden;}
+    .finedo-upload-fileitem-op{ float:right; width:70px; }
+    .finedo-upload-fileitem{ min-height:20px; padding:10px 0 10px 10px; border-bottom:1px solid #e0e0e0; }
+}

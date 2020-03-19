@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<fsdp2>
+	<!-- 单点登录配置 -->
+	<cas>
+    	<!-- 该回调服务用于构建应用系统自己的LoginDomain对象，如：1）补充用户权限信息；2）建立service层的token缓存 -->
+    	<!-- FSDP单点统一认证完成后回调的服务Ap，输入：String userid，输出:LoginDomain logindomain-->
+    	<!-- 单独单点服务器用/service/finedo/login/ssolocalauth，本地应用用/service/finedo/sso/queryauth -->
+    	<ssologinurl>/service/finedo/sso/queryauth</ssologinurl>
+    </cas>
+    
+    <urirewrite>
+        <!-- URL重写配置，前台请求过来的action,根据配置跳转到另一个action-->
+        <!-- action uri="/test/devlogin" rewriteuri="/finedo/auth/developerlogin"></action> -->
+    </urirewrite>
+    
+    <!-- ServiceCaller配置 -->
+    <servicecaller defaulturl="http://localhost:8100/easyshop_service/" timeout="120">
+	</servicecaller>
+	
+    <!-- 配置哪些服务接口不需要登录验证 -->
+    <noauth>
+		<!-- FSDP2.0框架定义webapp层nosession uri, 请勿修改 -->
+		<!-- 登录 -->
+		<uri name="/finedo/auth/developerlogin"/>
+		<uri name="/finedo/auth/ssoauth"/>
+		<uri name="/finedo/auth/loginindex"/>
+		<uri name="/finedo/auth/login"/>
+		<uri name="/finedo/auth/qqlogin"/>
+		<uri name="/finedo/auth/weibologin"/>
+		<uri name="/finedo/auth/httplogin"/>
+        <uri name="/finedo/auth/openlogin"/>
+		
+		<uri name="/finedo/auth/ssologinindex"/>
+		<uri name="/finedo/auth/ssologin"/>
+        <uri name="/finedo/auth/ssoauth"/>
+		
+		<!-- 错误页面 -->
+		<uri name="/finedo/auth/403"/>
+		<uri name="/finedo/auth/404"/>
+		<uri name="/finedo/auth/500"/>
+		<uri name="/finedo/auth/illegal"/>
+					
+		<!-- 密码修改 -->
+		<uri name="/finedo/config/updatepasswd"/>
+		<uri name="/finedo/config/modifypassword"/>
+		
+		<!-- 获取图形验证码 -->
+		<uri name="/finedo/oper/graphicscode"/>
+		<uri name="/finedo/oper/smscode"/>
+		
+		<!-- ueditor文件下载 -->
+		<uri name="/finedo/file/ueditordownload"/>
+		<uri name="/finedo/file/download"/>
+        <uri name="/finedo/file/preview/*"/>
+        <uri name="/finedo/file/downloadthumbnail"/>
+		
+		<!-- ueditor配置 -->
+		<uri name="/resource/js/ueditor/jsp/controller.jsp"/>
+					
+		<!-- 微信签名 -->
+		<uri name="/finedo/weixin/querysign"/>
+		
+		<!-- 小程序请求 -->
+		<uri name="/finedo/orderTrace/getTrace"/>
+		<uri name="/finedo/easyshopgoodstype/querygoodstypes"/>
+		<uri name="/finedo/easyshopgoodstype/query"/>
+		<uri name="/finedo/easyshopgoodstype/querygoodstypelist"/>
+		<uri name="/finedo/wechat/getOpenid"/>
+		<uri name="/finedo/easyshopuser/userlogin"/>
+		<uri name="/finedo/easyshopnews/query"/>
+		<uri name="/finedo/easyshopgoods/query"/>
+		<uri name="/finedo/easyshopgoods/querybyid"/>
+		<uri name="/finedo/wxpay/askPay"/>
+		<uri name="/finedo/easyshopaddress/query"/>
+		<uri name="/finedo/easyshopaddress/querybyid"/>
+		<uri name="/finedo/easyshopaddress/add"/>
+		<uri name="/finedo/easyshopaddress/modify"/>
+		<uri name="/finedo/easyshoporder/queryList"/>
+		<uri name="/finedo/easyshoporder/queryLowerList"/>
+		<uri name="/finedo/easyshoporder/querybyid"/>
+		<uri name="/finedo/easyshopnews/querybyid"/>
+		<uri name="/finedo/easyshopuser/querybyid"/>
+		
+    </noauth>
+    <!-- 静态资源扩展名 -->
+	<resources>
+		<resource name="js"/>
+		<resource name="css"/>
+		<resource name="gif"/>
+		<resource name="jpg"/>
+		<resource name="png"/>
+		<resource name="xlsx"/>
+		<resource name="xls"/>
+		<resource name="doc"/>
+		<resource name="docx"/>
+		<resource name="ppt"/>
+		<resource name="pptx"/>
+		<resource name="swf"/>
+		<resource name="apk"/>
+		<resource name="plist"/>
+		<resource name="ipa"/>
+		<resource name="apk"/>
+		<resource name="ico"/>
+		<resource name="html"/>
+	</resources>
+</fsdp2>

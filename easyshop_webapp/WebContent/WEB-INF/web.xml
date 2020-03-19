@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring-context.xml</param-value>
+	</context-param>
+  	
+  	<!-- 如果要使用https协议，打开如下注释，并将上面的context-param注释掉
+  	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring-security.xml,/WEB-INF/spring-context.xml</param-value>
+	</context-param>
+	
+	<filter>
+		<display-name>springSecurityFilterChain</display-name>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>  
+	<filter-mapping>  
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	-->
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+  
+	<servlet>
+		<servlet-name>all request</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+  	<servlet-mapping>
+		<servlet-name>all request</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+    
+	<filter>
+       <filter-name>springUtf8Encoding</filter-name>
+       <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+       <init-param>
+           <param-name>encoding</param-name>
+           <param-value>UTF-8</param-value>
+       </init-param>
+       <init-param>
+           <param-name>forceEncoding</param-name>
+           <param-value>true</param-value>
+       </init-param>
+    </filter>
+    <filter-mapping>
+       <filter-name>springUtf8Encoding</filter-name>
+       <url-pattern>/finedo/*</url-pattern>
+	</filter-mapping>
+    <filter-mapping>
+       <filter-name>springUtf8Encoding</filter-name>
+       <url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	
+	<!-- 单点Filter -->
+	<filter>
+        <filter-name>finedoSsoFilter</filter-name>
+        <filter-class>cn.finedo.fsdp.server.framework.FinedoSsoFilter</filter-class>
+        <init-param>
+            <!-- 本地应用配置/finedo/auth/loginindex，单点登录应用配置http://app.finedo.cn/sso/finedo/auth/ssologinindex -->
+            <param-name>ssoServerLoginUrl</param-name>
+            <param-value>/finedo/auth/loginindex</param-value>
+        </init-param>
+        <init-param>
+            <!-- 本地应用配置为空，单点配置http://app.finedo.cn/sso/finedo/auth/getLoginDomain -->
+            <param-name>getLoginDomainUrl</param-name>
+            <param-value></param-value>
+        </init-param>
+        <init-param>
+            <!-- 第三方登录时通过请求过来的code自动登录，如果不涉及可配置为空，第三方配置为http://app.finedo.cn/sso/finedo/auth/openlogin -->
+            <param-name>openServerLoginUrl</param-name>
+            <param-value></param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>finedoSsoFilter</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+       <filter-name>finedoSsoFilter</filter-name>
+       <url-pattern>/finedo/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+       <filter-name>finedoSsoFilter</filter-name>
+       <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    
+    <!-- URI重定向Filter 
+	<filter>
+		<filter-name>urirewriteFilter</filter-name>
+		<filter-class>cn.finedo.fsdp.server.framework.UriRewriteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>urirewriteFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+    -->
+    <!-- FSDP框架自有Filter -->
+	<filter>
+		<filter-name>frameworkWebFilter</filter-name>
+		<filter-class>cn.finedo.fsdp.server.framework.FrameworkWebFilter</filter-class>
+		
+		<init-param>
+			<!-- 登录URL -->
+			<param-name>loginUri</param-name>
+            <param-value>/finedo/auth/loginindex</param-value>
+        </init-param>
+        <init-param>
+			<!-- 首页URL -->
+			<param-name>indexUri</param-name>
+            <param-value>/finedo/auth/index</param-value>
+        </init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>frameworkWebFilter</filter-name>
+		<url-pattern>/</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>frameworkWebFilter</filter-name>
+		<url-pattern>/finedo/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>frameworkWebFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+    
+  	<!-- 配置session永不失效 -->
+	<session-config>
+		<session-timeout>-1</session-timeout>
+	</session-config>
+	
+	<error-page>
+		<error-code>403</error-code>
+		<location>/finedo/auth/403</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/finedo/auth/404</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/finedo/auth/500</location>
+	</error-page>
+  
+	<welcome-file-list>
+		<welcome-file>/finedo/auth/loginindex</welcome-file>
+	</welcome-file-list>
+</web-app>

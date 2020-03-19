@@ -1,0 +1,42 @@
+* { margin:0; padding:0; }
+
+/*---------等待--------*/
+.finedo-showwaiting-mask { background:gray; filter:alpha(opacity=50); opacity:0.5; display:none; position: fixed; top:0px; left:0px; width:100%; height:100%; z-index:2147483600; display:none; }
+.finedo-showwaiting-mask-msg { width:66px; height:66px; background:url(images/loading.gif) no-repeat; text-align:center; font-family:Microsoft Yahei, SimSun; color:#8c8b8b; font-size:14px; position: fixed; top:50%; left:50%; margin-left:-33px; margin-top:-33px; z-index:1000 }
+
+/*---------提示信息--------*/
+.finedo-message-mask { background:gray; filter: alpha(opacity=50); opacity: 0.5; display: none; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 2147483601; display:none; }
+.finedo-message{ width:auto;min-width:300px; background:#fff; margin:0 auto; border:1px solid #ddd; font-size:12px; font-family:Microsoft Yahei,SimSun; position: fixed; z-index: 2147483601; }
+.finedo-message-til{ padding:0 10px; background:#efefef; line-height:30px; }
+.finedo-message .finedo-message-close{ width:17px; height:17px; background:url(images/message_close.png) 0 0 no-repeat; border:0; float:right; margin-top:6px; cursor:pointer; outline:none; line-height:0; }
+.finedo-message .finedo-message-close:hover{ background:url(images/message_close.png) 0 -17px no-repeat; }
+.finedo-message-con{ padding:10px; line-height:16px; }
+.finedo-message-con img{ float:left; padding:0 10px 0 0; }
+.finedo-message .finedo-message-button{ padding:0 15px; height:30px; line-height:0; border:0; font-size:12px; background:#5ebfe7; font-family:Microsoft Yahei,SimSun; color:#fff; margin-top:8px; cursor:pointer; -webkit-appearance: none;}
+.finedo-message-button:hover{ background:#00c0aa; }
+.finedo-message-center{ text-align:center; }
+.finedo-message-info{ width:40px; height:40px; display:inline-block; background:#f00; border:0; background:url(images/message_icons.png) 0 0 no-repeat; float:left; margin-right:5px; }
+.finedo-message-question{ width:40px; height:40px; display:inline-block; background:#f00; border:0; background:url(images/message_icons.png) -40px 0 no-repeat; float:left; margin-right:5px; }
+.finedo-message-error{ width:40px; height:40px; display:inline-block; background:#f00; border:0; background:url(images/message_icons.png) -80px 0 no-repeat; float:left; margin-right:5px; }
+.finedo-message-warning{ width:40px; height:40px; display:inline-block; background:#f00; border:0; background:url(images/message_icons.png) -120px 0 no-repeat; float:left; margin-right:5px; }
+.finedo-message-tip{ width:auto;min-width:160px; height:auto;min-height:60px; background:#000; opacity:0.4; filter:alpha( opacity=40); position:fixed; z-index:2147483601; font-size:14px; color:#fff; border-radius:5px; text-align:center; line-height:60px; font-family:Microsoft Yahei, SimSun; }
+
+/*---------对话框--------*/
+.finedo-showdialog-mask { background: gray; filter: alpha(opacity=50); opacity: 0; display: none; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 2147483600; display:none; }
+.finedo-showdialog-content{position: fixed; top: 0px; left: 0px; margin:5px; padding:5px; overflow:auto; display:none; z-index: 2147483600; }
+
+/*---------窗口dialog--------*/
+.finedo-dialog{ width:600px; height:438px; background:#fff; border:1px solid #ddd; color:#444; font-size:13px; position:fixed; z-index: 2147483600; }
+.finedo-dialog-mask{ background: gray; filter: alpha(opacity=50); opacity: 0.5; display: none; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 2147483600; display:none; }
+.finedo-dialog-bar{ width:100%; height:35px; background:#efefef; line-height:35px; border-bottom:1px solid #ddd; font-family:Microsoft Yahei, SimSun; }
+.finedo-dialog-title{ padding-left:10px; }
+.finedo-dialog .finedo-dialog-max{ float:right; margin:8px 10px 0 0; width:17px; height:17px; background-image:url(images/dialog_icon.png); border:0; cursor:pointer; line-height:0; }
+.finedo-dialog .finedo-dialog-max:hover{ background-position:34px 0; }
+.finedo-dialog .finedo-dialog-close{ float:right; margin:8px 10px 0 0; width:17px; height:17px; background-image:url(images/dialog_icon.png); border:0; cursor:pointer; background-position:51px 0; line-height:0; }
+.finedo-dialog .finedo-dialog-close:hover{ background-position:17px 0; }
+.finedo-dialog-content-box{width:100%; height:353px; padding:0px; overflow-y:no; overflow-x:no;}
+.finedo-dialog-content{ padding:0px; overflow-y:auto; overflow-x:auto;}
+.finedo-dialog-content p{ line-height:24px; }
+.finedo-dialog-bottom{ width:100%; height:50px; background:#f9f9f9; text-align:center; position:absolute; bottom:0; left:0; }
+.finedo-dialog-btn{ width:138px; height:36px; background-image:url(images/dialog_btn.png); color:#fff; font-size:14px; font-weight:700; border:0; margin-top:7px; cursor:pointer; }
+.finedo-dialog-btn:hover{ background-position:-138px 0; }

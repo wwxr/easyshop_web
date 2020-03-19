@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    body, div, span, h2 {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background: url("imgs/bg.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+    .box {
+        width: 1000px;
+        height: 800px;
+        margin: 20px auto;
+        border-radius: 10px;
+        background: #EDEDED;
+        box-shadow: #000 0 0 15px inset;
+        -webkit-box-shadow: #000 0 0 15px inset;
+        -moz-box-shadow: #000 0 0 15px inset;
+        -o-box-shadow: #000 0 0 15px inset;
+        padding: 20px;
+        color: #ccc;
+        font-size: 36px;
+        font-weight: bolder;
+    }
+</style>
+<link href='themes/style.css' rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="../../jquery/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="finedo.contextmenu.js"></script>
+</head>
+<body>
+<div class="box" id="box" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none; cursor: default;height:2000px;">
+请对着白色区域右键单击....<br><br>(或使用快捷键【 alt+1 , alt+2 , ctrl+j , shift+y 】)
+</div>
+<script language="javascript">
+$(document).ready(function() {
+    var menu = new FinedoContextMenu({
+        target: "box",//开启自定义右键菜单的目标,
+        menu: {//菜单数据配置
+            title: {//标题配置
+                icon: "imgs/em_01.png",//标题图标路径
+                content: "菜单标题"//标题内容
+            },
+            items: [//菜单项配置
+                {
+                    icon: "imgs/em_02.png",//菜单项图标路径
+                    content: "菜单项1",//菜单项内容
+                    action: function (e, item) {//菜单项单击和快捷键触发事件
+                        //alert(item.content);
+                        //console.log(this.target);
+                    },
+                    keymap: "alt+1"//快捷键（目前只支持：ctrl+  alt+  shift+  ）
+                },
+                "-",//代表分隔符
+                {
+                    icon: "imgs/em_04.png",
+                    content: "菜单项2",
+                    action: function (e, item) {
+                        //alert("====>" + item.content);
+                    },
+                    keymap: "alt+2"
+                },
+                {
+                    icon: "imgs/em_05.png",
+                    content: "菜单项3",
+                    action: function (e, item) {
+                        //alert("====>" + item.content);
+                    },
+                    keymap: "ctrl+j"
+                },
+
+                "-",
+
+                {
+                    icon: "",
+                    content: "菜单项5",
+                    action: function (e, item) {
+                        console.log(e, item,this);
+                    }
+                }
+            ]
+        }
+    });
+});
+</script>
+</body>
+</html>

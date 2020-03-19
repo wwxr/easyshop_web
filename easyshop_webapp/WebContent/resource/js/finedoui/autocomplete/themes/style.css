@@ -1,0 +1,6 @@
+* { margin:0; padding:0; }
+/*---------树控件--------*/
+li{ list-style-type:none; }
+.fdautocomplete{ min-width:200px; max-height:240px; overflow-y:auto; background:#f7f7f7; position:absolute; z-index:999; top:20px; left:20px; font-size:14px; font-family:"Microsoft YaHei"; border-left:1px solid #ddd; border-right:1px solid #ddd; border-bottom:1px solid #ddd; }
+.fdautocomplete li{ cursor:pointer; line-height:30px; text-indent:10px; }
+.fdautocomplete li:hover{ background:#fafdfe; }

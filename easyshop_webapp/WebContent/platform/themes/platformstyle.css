@@ -1,0 +1,189 @@
+*{ margin: 0; padding: 0; font-family: "microsoft yahei";}
+ul,li{ list-style: none;}
+a{ text-decoration: none;}
+.clear{ clear: both;}
+* input{border: none; outline: none;}
+input[type="button"], input[type="submit"], input[type="reset"] {-webkit-appearance: none;}
+textarea {  -webkit-appearance: none;}
+*{-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;}
+
+
+/*首页*/
+
+body{ font-size: 14px; background: #f8f8f8;}
+.basic-frame-top{ height: 64px; background: #e88146; position: fixed; top: 0; left: 0; width: 100%; z-index: 99; line-height: 64px; color: #fff;}
+.basic-frame-top .logo{ float: left; font-size: 16px; box-sizing: border-box; padding-left: 15px; }
+.basic-frame-top .logo img{ width: 20px; vertical-align: middle; margin: -4px 6px 0 0;}
+.base-menu{ float: left; border-right: 1px solid #c06103; padding: 0 20px; cursor: pointer;}
+.base-menu img{ width: 20px; vertical-align: middle;}
+.base-top-nav{ float: left; margin-left: 100px;}
+.base-top-nav ul li{ float: left; font-size: 16px; }
+.base-top-nav ul li.active a{ color: #fff; border-bottom: 3px solid #fcb730;}
+.base-top-nav ul li:hover a{ color: #fff;}
+.base-top-nav ul li a{color: #b1d5fb; margin: 0 24px; padding-bottom: 8px;}
+.base-top-right{ float: right; margin-right: 20px; cursor: pointer;}
+.base-top-right .userinfo{ display: inline-block; font-size: 14px; margin-right: 15px; }
+.base-top-right .userinfo span{ color: #ffc107;}
+.base-top-right img{ width: 18px; vertical-align: middle;}
+.moremenu{display: none; position: fixed; left: 160px; box-shadow: 2px 0 10px rgba(0,0,0,.1) inset; bottom: 0; top: 64px; width: 160px; border-right: 1px solid #d9e1ec; height: auto; background: #fff; z-index: 101; overflow-y: auto;  box-sizing: border-box;}
+.moremenu-tits{ box-sizing: border-box; padding: 0 10px; border-bottom: 1px solid #ddd; height: 40px; font-size: 14px; line-height: 40px; color: #999; cursor: pointer;}
+.moremenu-tits img{ vertical-align: middle; margin: -4px 8px 0 0; width: 8px;}
+.moremenulist{ box-sizing: border-box; padding: 6px 16px;}
+.moremenulist li{ line-height: 36px; font-size: 14px; cursor: pointer;}
+.moremenulist li:hover{ color: #2484E8;}
+.version{ position: absolute; bottom: .2rem; text-align: center; width: 100%; color: #a7a7a7; font-size: 14px;}
+
+.basic-left{ position: fixed; z-index: 100; left: 0; bottom: 0; top: 70px; width: 250px; height: auto; background: #fff; border-right: 1px solid #d9e1ec; overflow-y: auto;  box-sizing: border-box;}
+.basic-left-user{ background: #f7f7f7; width: 100%; box-sizing: border-box; padding: 20px 15px; text-align: center; display: none;}
+.basic-left-user .user{ width: 44px; margin-right: 10px;}
+.user-name{ color: #333; font-size: 14px;}
+.user-what{ color: #999; font-size: 12px; margin-top: 6px;}
+.basic-left-menu dt{ background: #1774d5; font-size: 14px; color: #fff; height: 32px; line-height: 32px; box-sizing: border-box; padding-left: 20px;}
+.basic-left-menu dd{line-height: 50px; cursor: pointer; position: relative; font-size: 14px; background: #e88146; border-bottom: 1px solid #ffffff;color:#fff;}
+.basic-left-menu dd a{ margin-left: 16px; color: #333;}
+.basic-left-menu dd ul{ display: none; background: #ffffff;}
+.basic-left-menu dd ul li{ color: #666; font-size: 14px; box-sizing: border-box; padding-left: 16px;border-left: 4px solid #fff;}
+.basic-left-menu dd ul li.active{ color: #e88146; background: #ebd6c2; border-left: 4px solid #e88146;}
+.basic-left-menu dd .downico{ position: absolute; right: 15px; top: 15px;width: 15px;}
+.basic-left-menu dd ul li:hover{ color: #e88146; background: #ebd6c2; border-left: 4px solid #e88146;}
+.basic-left-menu dd:hover{ color: #ffc107;}
+.frontico{ display: none;}
+.main-iframebox{ position: fixed; top: 64px; bottom: 0; left: 250px; right: 0;  height: auto; }
+
+/*web头部切换用户*/
+.switchbtn{ background: none; padding: 4px 10px; color: #ffc107; margin-right: 10px; cursor: pointer;}
+.switchbtn:hover{ color: #fff;}
+.switch-cons{ display: none;}
+.switch-cons span{ font-size: 14px;}
+.accout{ height: 26px; background: #fff; border: none; width: 180px; box-sizing: border-box; padding-left: 10px; border-radius: 0; vertical-align: middle;}
+.deter{ height: 26px; font-size: 14px; background: #ff9800; color: #fff; width: 60px; cursor: pointer; border-radius: 0; vertical-align: middle;}
+.deter:hover{ background: #ffc107;}
+.cancel{ background: none; color: #cee6ff; height: 26px; margin:0 24px 0 8px; cursor: pointer; font-size: 12px;}
+.cancel:hover{ color: #fff;}
+.close{float: right; border-left: 1px solid #c06103; padding-left: 20px;}
+.blackbg{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,.2); z-index: 99; display: none;}
+/*app端自适应代码*/
+
+@media only screen and (max-width:768.9px ) {
+	.base-top-right .userinfo{ font-size: .26rem;}
+	.basic-left-user{ display: block;}
+	body{ font-size: 0.24rem;}
+	.switchbtn{ font-size: .24rem; display: none;}
+	.frontico{ width: .36rem; display: inline-block; vertical-align: middle; margin: -.04rem .16rem 0 0;}
+	.basic-frame-top{ height: .88rem; line-height: .88rem; position: relative; z-index: 99;}
+	.user-name{ font-size: .3rem;}
+	.user-what{ font-size: .24rem;}
+	.basic-left-user .user{ width: 1.18rem;}
+	.base-menu img{ width: .4rem;}
+	.moremenu{ top: 0; left: 180px;}
+	.version{ font-size: .22rem; display: block;}
+	.main-iframebox{ -webkit-overflow-scrolling: touch; overflow-y: auto;}
+	.basic-left-menu dd ul li{ padding-left: .78rem; line-height: .9rem;}
+	.moremenulist li{ line-height: 1rem; padding-left: .16rem;cursor: pointer;}
+	.moremenulist{ padding-top: .08rem;}
+	.basic-left-menu dd{ line-height: 1rem;}
+	.downico{ display: none;}
+	.accout{ font-size: .24rem; height: .46rem;}
+	.close{ padding-left: .24rem;}
+	.deter{ font-size: .24rem; height: .46rem;}
+	.base-top-right{ margin-right: .24rem;}
+	.basic-frame-top .logo{ display: none;}
+	.basic-left{ box-shadow: 2px 0 8px rgba(0,0,0,.2); z-index: 100; top: 0; width: 180px;}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1000px) {
+}
+
+
+/********************************************登录页*******************************************************/
+
+/*web登录*/
+html,body{ height: 100%; width: 100%;}
+.loginbody {
+	background: #e88146;
+	background-image: -moz-linear-gradient( 47deg, #e88146 0%, #e88146 100%);
+	background-image: -webkit-linear-gradient( 47deg, #e88146 0%, #e88146 100%);
+	background-image: -ms-linear-gradient( 47deg, #e88146 0%, #e88146 100%);
+	width: 100%;
+	height: 100%;
+}
+
+.leftico{ position: absolute; top: 0; left: 0;}
+.bottomico{ position: absolute; bottom: 0; left: 0; width: 100%; height: 40%;}
+.login-main{ max-width: 1200px; min-width: 1200px; height: 520px; margin-top: -260px; top: 50%; position: absolute; left: 50%; margin-left: -600px;}
+.loginleftbg{ float: left; width: 480px; margin-top: 35px;}
+.login-box{ width: 440px; float: right;}
+.login-info{ background: #fff; padding: 34px 55px; box-sizing: border-box; width: 440px; border-radius: 10px;}
+.login-info li{ position: relative;  margin-top: 20px;}
+.login-info li img.text{ position: absolute; top: 8px; left: 8px; width: 22px;}
+.login-info li img.password{ position: absolute; top: 8px; left: 8px; width: 22px; }
+.login-info li img.code{ position: absolute; top: 10px; left: 8px; width: 20px; }
+.login-logo{ text-align: center; color: #fff; margin-bottom: 30px;}
+.login-logo p{ font-size: 22px;}
+.login-logo p span{ font-size: 14px; margin-left: 7px;}
+.login-logo .logoname{ font-size: 22px;}
+.login-info .title{ font-size: 16px; color: #333; text-align: center; margin-bottom: 24px;}
+.login-user{border:1px solid #3872f6; width: 100%; height: 40px; line-height: 40px; font-size: 14px; border-radius: 3px; box-sizing: border-box; text-indent: 35px;}
+.login-pwd{ border:1px solid #3872f6; width: 100%; height: 40px; line-height: 40px; font-size: 14px; box-sizing: border-box; border-radius: 3px;  text-indent: 35px;}
+.login-code{border:1px solid #3872f6; width: 68%; height: 40px; line-height: 40px; font-size: 14px; border-radius: 3px; box-sizing: border-box;  text-indent: 35px;}
+.codecons{ float: right; width: 32%; height: 40px; box-sizing: border-box; padding-left: 10px;}
+.codedetail{ background: #00A6FF; width: 100%; height: 40px; font-size: 20px; text-align: center; color: #fff; line-height: 40px; letter-spacing: 5px;}
+.remeber{ vertical-align: middle; margin: -4px 6px 0 0; width: 12px;}
+.remeberinfo{ font-size: 14px; margin-top: 12px; cursor: pointer;}
+.login-btn{ background: #e88146; color: #fff; font-size: 16px; width: 100%; height: 40px; border-radius: 5px; cursor: pointer; margin-top: 30px;}
+.login-foot{ position: fixed; bottom: 10px; width: 100%; text-align: center; color: #f0f0f0;}
+.login-foot span{ font-size: 12px; margin: 0 7px;}
+.login-foot a{ color: #f0f0f0; font-size: 14px; }
+.login-foot a:hover{ color: #fff;}
+.copyright{ font-size: 14px; color: #f0f0f0; margin: 10px 0;}
+
+
+/*手机端登录*/
+
+@media only screen and (max-width:768.9px ) {
+	.login-info li img.text{ width: .36rem;  top: .2rem; left: .1rem;}
+	.login-info li img.password{ width: .36rem; top: .2rem; left: .1rem;}
+	.login-info li img.code{ width: .32rem;  top: .24rem; left: .1rem;}
+	.loginleftbg{ display: none;}
+	.login-main{ position: fixed; margin: auto; width: 100%; height: 100%; display: flex; align-items: center; left: auto; top: auto; min-width: auto; box-sizing: border-box; padding: 0 0.5rem;}
+	.login-box{ width: 100%;}
+	.login-info{ width: 100%; padding: 0.5rem; box-sizing: border-box;}
+	.login-info li i{ width: .36rem; height: .36rem; top: .24rem;}
+	.login-user{height: 0.8rem;  font-size: 0.26rem; text-indent: 0.6rem;}
+	.login-pwd{ background-size: 6.4%; height: 0.8rem; font-size: 0.26rem; text-indent: 0.6rem;}
+	.login-code{ background-size: 8%; height: 0.8rem; font-size: 0.26rem; text-indent: 0.6rem;}
+	.login-foot{ display: none;}
+	.codedetail{ line-height: .8rem; height: .8rem; font-size: 0.36rem;}
+	.login-btn{ height: 0.8rem; font-size: 0.3rem;}
+	.remeberinfo{ font-size: 0.26rem; margin-top: 0.2rem;}
+	.remeber{ width: 0.22rem; margin: -0.04rem 0.1rem 0 0;}
+	.login-info .title{ font-size: 0.28rem;}
+	.login-logo .logoname{ font-size: 0.44rem;}
+	.login-logo p span{ font-size: 0.24rem;}
+	.login-logo p{ font-size: 0.44rem;}
+	.codedetail{ letter-spacing: 0.04rem;}
+}
+
+/*平板登录页兼容*/
+@media only screen and (min-width: 769px) and (max-width: 1024.9px) {
+	.login-info li img.text{ width: .36rem; top: .2rem; left: .1rem;}
+	.login-info li img.password{ width: .36rem;  top: .2rem; left: .1rem;}
+	.login-info li img.code{ width: .32rem;  top: .2rem; left: .1rem;}
+	.loginleftbg{ display: none;}
+	.login-main{ position: relative; margin: auto; width: 100%; height: 100%; display: flex; align-items: center; left: auto; top: auto; min-width: auto; box-sizing: border-box; padding: 0 0.5rem;}
+	.login-box{ width: 100%;}
+	.login-info{ width: 100%; padding: 0.5rem; box-sizing: border-box;}
+	.login-user{background-size: 6.4%; height: 0.8rem;  font-size: 0.26rem; text-indent: 0.6rem;}
+	.login-pwd{ background-size: 6.4%; height: 0.8rem; font-size: 0.26rem; text-indent: 0.6rem;}
+	.login-code{ background-size: 8%; height: 0.8rem; font-size: 0.26rem; text-indent: 0.6rem;}
+	.login-foot{ display: none;}
+	.codedetail{ line-height: .8rem; height: .8rem; font-size: 0.36rem;}
+	.login-btn{ height: 0.8rem; font-size: 0.3rem;}
+	.remeberinfo{ font-size: 0.26rem; margin-top: 0.2rem;}
+	.remeber{ width: 0.22rem; margin: -0.04rem 0.1rem 0 0;}
+	.login-info .title{ font-size: 0.28rem;}
+	.login-logo .logoname{ font-size: 0.44rem;}
+	.login-logo p span{ font-size: 0.24rem;}
+	.login-logo p{ font-size: 0.44rem;}
+	.codedetail{ letter-spacing: 0.04rem;}
+}

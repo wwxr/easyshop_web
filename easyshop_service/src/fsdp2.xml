@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<fsdp2>
+	<datasource>
+      <!-- <jdbc name="fsdp">
+            <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+            <url>jdbc:mysql://localhost:3306/easyshop?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;rewriteBatchedStatements=true</url>
+            <username>$u29jdju7MQQ=</username>
+            <password>$u29jdju7MQQ=</password>
+        </jdbc>
+        <jdbc name="easyshop_service">
+            <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+            <url>jdbc:mysql://localhost:3306/easyshop?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;rewriteBatchedStatements=true</url>
+            <username>$u29jdju7MQQ=</username>
+            <password>$u29jdju7MQQ=</password>
+        </jdbc> -->
+        <jdbc name="fsdp">
+            <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+            <url>jdbc:mysql://localhost:3306/easyshop?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;rewriteBatchedStatements=true</url>
+            <username>$u29jdju7MQQ=</username>
+            <password>3Ss5kYxNukgH6PEdDsRQkA==</password>
+        </jdbc>
+        <jdbc name="easyshop_service">
+            <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+            <url>jdbc:mysql://localhost:3306/easyshop?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;rewriteBatchedStatements=true</url>
+            <username>$u29jdju7MQQ=</username>
+            <password>3Ss5kYxNukgH6PEdDsRQkA==</password>
+        </jdbc>
+    </datasource>
+	<service>
+        <!-- token管理：local/redis -->
+        <tokenmananger>local</tokenmananger>
+        <!-- 是否支持异地同时登录 -->
+        <remotelogin>true</remotelogin>
+        <!-- 登录来源要求，不区分来源:any（如果支持异地登录，不区分来源，则一个账号可在任何终端多次登录）、区分来源:term（只能在不能终端登录） -->
+        <loginsource>any</loginsource>
+
+        <!-- 开发者模式下，默许的登录账号，生产应用请务必将此配置注释-->
+        <developeruser>superuser</developeruser>
+
+        <!-- 服务监控开关： true 打开    false 关闭 -->
+        <servicemonitor>false</servicemonitor>
+
+        <!--  JDBC SQL监控开关： true 打开    false 关闭 -->
+        <jdbcmonitor>false</jdbcmonitor>
+
+        <!-- 数据更新时是否备份标识：yes/no/config，yes为全部，no为全部不备份，config为按配置的表名备份 -->
+        <updatebackup>yes</updatebackup>
+    </service>
+    
+    <!-- ServiceCaller配置 -->
+    <servicecaller defaulturl="http://localhost:8100/easyshop_service/" timeout="120">
+	</servicecaller>
+	
+    <!-- 配置哪些服务接口不需要登录验证 -->
+    <noauth>
+    	<!-- FSDP2.0框架定义service层notoken uri, 请勿修改 -->
+        <!-- 登录 -->
+        <uri name="/service/finedo/login/localauth"/>
+        <uri name="/service/finedo/login/ssolocalauth"/>
+        <uri name="/service/finedo/login/devlocalauth"/>
+
+        <!--第三方账号登录-->
+        <uri name="/service/finedo/login/openauth"/>
+        <uri name="/service/finedo/login/qqlogin"/>
+        <uri name="/service/finedo/login/weibologin"/>
+        <uri name="/service/finedo/login/weixinlogin"/>
+
+        <!--上传App报错日志-->
+        <uri name="/service/finedo/login/addAppLog"/>
+
+        <!-- 密码修改 -->
+        <uri name="/service/finedo/config/modifypassword"/>
+
+        <!-- 单点认证 -->
+        <uri name="/service/finedo/sso/auth"/>
+        <uri name="/service/finedo/sso/openauth"/>
+        <uri name="/service/finedo/sso/queryauthbytoken"/>
+        <uri name="/service/finedo/sso/queryauthbysessionid"/>
+        <uri name="/service/finedo/sso/devauth"/>
+        <uri name="/service/finedo/sso/queryauth"/>
+
+        <!-- 获取图形验证码 -->
+        <uri name="/service/finedo/oper/graphicscode"/>
+        <uri name="/service/finedo/oper/smscode"/>
+        <uri name="/service/finedo/oper/validation"/>
+
+        <!-- 系统初始化-->
+        <uri name="/service/finedo/login/sysinit"/>
+        <uri name="/service/finedo/statics/query"/>
+        <uri name="/service/finedo/configure/querysysparam"></uri>
+
+        <!-- APP更新检测-->
+        <uri name="/service/finedo/app/check"/>
+
+        <!-- 跨域配置数据加载 -->
+        <uri name="/service/finedo/cross/querycross"/>
+
+        <!-- 文件上传下载 -->
+        <uri name="/service/finedo/file/query"/>
+        <uri name="/service/finedo/file/upload"/>
+        <uri name="/service/finedo/file/delete"/>
+        <uri name="/service/finedo/file/download"/>
+        <uri name="/service/finedo/file/downloadmulti"/>
+
+        <!-- 流水号生成 -->
+        <uri name="/service/finedo/id/queryid"/>
+        <uri name="/service/finedo/id/queryoptsn"/>
+        <uri name="/service/finedo/id/queryintid"/>
+
+        <!-- 微信签名 -->
+        <uri name="/service/finedo/weixin/querysign"/>
+        <!-- 小程序 -->
+		<uri name="/service/finedo/orderTrace/getTrace"/>
+		<uri name="/service/finedo/orderTrace/getShipper"/>
+		<uri name="/service/finedo/easyshopgoodstype/querygoodstypes"/>
+		<uri name="/service/finedo/easyshopgoodstype/query"/>
+		<uri name="/service/finedo/easyshopgoodstype/querygoodstypelist"/>
+		<uri name="/service/finedo/easyshopuser/addloginuser"/>
+		<uri name="/service/finedo/easyshopuser/querybyid"/>
+		<uri name="/service/finedo/easyshopnews/query"/>
+		<uri name="/service/finedo/easyshopgoods/query"/>
+		<uri name="/service/finedo/easyshopgoods/querybyid"/>
+		<uri name="/service/finedo/wxpay/askPay"/>
+		<uri name="/service/finedo/easyshopaddress/query"/>
+		<uri name="/service/finedo/easyshopaddress/querybyid"/>
+		<uri name="/service/finedo/easyshopaddress/add"/>
+		<uri name="/service/finedo/easyshopaddress/update"/>
+		<uri name="/service/finedo/easyshoporder/queryList"/>
+		<uri name="/service/finedo/easyshoporder/queryLowerList"/>
+		<uri name="/service/finedo/easyshoporder/querybyid"/>
+		<uri name="/service/finedo/easyshopnews/querybyid"/>
+		<uri name="/service/finedo/easyshopuser/querybyid"/>
+    </noauth>
+</fsdp2>

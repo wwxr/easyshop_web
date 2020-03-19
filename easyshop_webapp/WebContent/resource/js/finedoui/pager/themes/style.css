@@ -1,0 +1,11 @@
+* { margin:0; padding:0; }
+/*---------分页--------*/
+.finedo-page{ float:right; width:100%; color:#798f9f; font-size:12px; text-align:right; margin-right:20px; }
+.finedo-page .finedo-btn-num{ width:38px; height:25px; line-height:25px; margin-right:5px; background:#eff2f5; color:#798f9f; cursor:pointer; font-size:12px; border:1px solid #eff2f5; font-family:Microsoft Yahei, SimSun; }
+.finedo-page .finedo-btn-num:hover{ background:#4da3de; border:1px solid #4da3de; color:#fff; }
+.finedo-page .finedo-text-num{ width:42px; height:23px; border:1px solid #c7daee; background:#fff; line-height:23px; text-align:center; }
+.finedo-page .finedo-color{ color:#ea7226}
+.finedo-show{ float:right; width:40px; line-height:23px; background:url(images/pager.png) 10px -42px no-repeat; border:1px solid #c7daee; overflow:hidden; }
+.finedo-show .finedo-showsel{ width:80px; height:23px; border:0; background:none; color:#798f9f; }
+.finedo-num{ float:right; padding-left:8px; }
+
